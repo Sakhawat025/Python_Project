@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Loyalty Program | CarCare{% endblock title %}
+{% block styles %}
+<style>
+.loyalty-hero {
+    background: linear-gradient(90deg, #008cff 0%, #00c6ff 100%);
+    color: #fff;
+    text-align: center;
+    padding: 48px 0 24px 0;
+}
+.loyalty-hero h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.loyalty-hero p {
+    font-size: 1.1rem;
+    color: #e3f2fd;
+}
+.loyalty-tiers-section {
+    background: #f6fafd;
+    padding: 36px 0 24px 0;
+    display: flex;
+    justify-content: center;
+}
+.loyalty-tiers-container {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+.loyalty-tier-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(25, 118, 210, 0.08);
+    padding: 32px 28px 24px 28px;
+    min-width: 260px;
+    max-width: 320px;
+    text-align: center;
+    border-top: 4px solid transparent;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+.loyalty-tier-card.gold {
+    border-top: 4px solid #ffd600;
+}
+.loyalty-tier-card.platinum {
+    border-top: 4px solid #b3e5fc;
+}
+.loyalty-tier-card h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 14px;
+    color: #232323;
+}
+.loyalty-tier-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #444;
+    font-size: 1.05rem;
+}
+.loyalty-tier-card ul li {
+    margin-bottom: 8px;
+    text-align: left;
+}
+.loyalty-how-section {
+    background: #eaf4fd;
+    padding: 36px 0 32px 0;
+    text-align: center;
+}
+.loyalty-how-section h2 {
+    font-size: 2rem;
+    color: #232323;
+    margin-bottom: 24px;
+}
+.loyalty-how-cards {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+.loyalty-how-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(25, 118, 210, 0.06);
+    padding: 28px 22px 18px 22px;
+    min-width: 220px;
+    max-width: 260px;
+    margin-bottom: 16px;
+}
+.loyalty-how-card h4 {
+    font-size: 1.15rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #1976d2;
+}
+.loyalty-how-card p {
+    color: #444;
+    font-size: 1rem;
+}
+.loyalty-cta-section {
+    background: #0073d6;
+    color: #fff;
+    text-align: center;
+    padding: 36px 0 48px 0;
+}
+.loyalty-cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 18px;
+}
+.loyalty-cta-btn {
+    background: #ff6f00;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 14px 36px;
+    font-size: 1.15rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 8px;
+}
+.loyalty-cta-btn:hover {
+    background: #ffa000;
+}
+@media (max-width: 900px) {
+    .loyalty-tiers-container, .loyalty-how-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+}
+</style>
+{% endblock styles %}
+
+{% block content %}
+<div class="loyalty-hero">
+    <h1>CarCare Loyalty Program</h1>
+    <p>Enjoy exclusive rewards and privileges when you join our loyalty program.</p>
+</div>
+<div class="loyalty-tiers-section">
+    <div class="loyalty-tiers-container">
+        <div class="loyalty-tier-card silver">
+            <h3>Silver Member</h3>
+            <ul>
+                <li>&#10003; 5% Discount on all services</li>
+                <li>&#10003; Free wash after 5 bookings</li>
+                <li>&#10003; Email Offers &amp; Coupons</li>
+            </ul>
+        </div>
+        <div class="loyalty-tier-card gold">
+            <h3>Gold Member</h3>
+            <ul>
+                <li>&#10003; 10% Discount on all services</li>
+                <li>&#10003; 1 Free Wax every month</li>
+                <li>&#10003; Priority Booking</li>
+            </ul>
+        </div>
+        <div class="loyalty-tier-card platinum">
+            <h3>Platinum Member</h3>
+            <ul>
+                <li>&#10003; 20% Discount on all services</li>
+                <li>&#10003; Unlimited car washes</li>
+                <li>&#10003; Personal concierge support</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="loyalty-how-section">
+    <h2>How It Works</h2>
+    <div class="loyalty-how-cards">
+        <div class="loyalty-how-card">
+            <h4>Earn Points</h4>
+            <p>Earn points for every service and booking you make.</p>
+        </div>
+        <div class="loyalty-how-card">
+            <h4>Track Your Rewards</h4>
+            <p>Use your profile dashboard to see your points and available rewards.</p>
+        </div>
+        <div class="loyalty-how-card">
+            <h4>Redeem &amp; Enjoy</h4>
+            <p>Exchange points for free washes, discounts, or premium upgrades.</p>
+        </div>
+    </div>
+</div>
+<div class="loyalty-cta-section">
+    <h2>Ready to Join?</h2>
+    <a href="{% url 'signup' %}" class="loyalty-cta-btn">Sign Up Now</a>
+</div>
+{% endblock content %}

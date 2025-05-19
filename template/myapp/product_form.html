@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    body {
+        background: linear-gradient(120deg, #fff6f9 0%, #f8f8f8 100%);
+        min-height: 100vh;
+    }
+    .product-form-container {
+        max-width: 520px;
+        margin: 48px auto;
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 6px 32px rgba(25, 118, 210, 0.10);
+        padding: 36px 32px 28px 32px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .product-form-container h2 {
+        color: #1976d2;
+        font-weight: bold;
+        margin-bottom: 24px;
+        text-align: center;
+        letter-spacing: 1px;
+    }
+    .product-form-container form {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+    .product-form-container label {
+        font-weight: 500;
+        color: #1565c0;
+        margin-bottom: 6px;
+    }
+    .product-form-container input[type="text"],
+    .product-form-container input[type="number"],
+    .product-form-container input[type="file"],
+    .product-form-container textarea {
+        border: 1px solid #90caf9;
+        border-radius: 8px;
+        padding: 10px 12px;
+        font-size: 1rem;
+        background: #e3f2fd;
+        color: #0d47a1;
+        transition: border 0.2s, background 0.2s;
+    }
+    .product-form-container input[type="text"]:focus,
+    .product-form-container input[type="number"]:focus,
+    .product-form-container textarea:focus {
+        border: 1.5px solid #1976d2;
+        outline: none;
+        background: #fff;
+    }
+    .product-form-container input[type="submit"] {
+        background: linear-gradient(90deg, #1565c0 0%, #42a5f5 100%);
+        color: #fff;
+        border: none;
+        border-radius: 24px;
+        padding: 12px 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-top: 10px;
+        cursor: pointer;
+        transition: background 0.2s;
+        box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+    }
+    .product-form-container input[type="submit"]:hover {
+        background: linear-gradient(90deg, #1976d2 0%, #64b5f6 100%);
+    }
+</style>
+<div class="product-form-container">
+    <h2>Add / Update product</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" name="Submit" value="Save product">
+    </form>
+</div>
+{% endblock %}

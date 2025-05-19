@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+.detailing-hero {
+    background: #cbe5fa;
+    padding: 40px 0 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    border-radius: 0 0 24px 24px;
+    min-height: 220px;
+    position: relative;
+}
+@media (max-width: 900px) {
+    .detailing-hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 18px;
+    }
+}
+.detailing-hero-content {
+    flex: 1;
+    padding-left: 48px;
+}
+.detailing-hero-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #232323;
+    margin-bottom: 10px;
+}
+.detailing-hero-desc {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 18px;
+}
+.detailing-hero-list {
+    color: #222;
+    font-size: 1rem;
+    margin-left: 18px;
+    margin-bottom: 0;
+}
+.detailing-hero-img {
+    flex-shrink: 0;
+    margin-right: 48px;
+}
+.detailing-hero-img img {
+    width: 260px;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(25, 118, 210, 0.13);
+}
+@media (max-width: 900px) {
+    .detailing-hero-content, .detailing-hero-img {
+        padding: 0;
+        margin: 0 auto;
+    }
+    .detailing-hero-img img {
+        width: 90vw;
+        max-width: 340px;
+    }
+}
+.detailing-services-section {
+    background: #f7fafd;
+    padding: 48px 0 32px 0;
+    text-align: center;
+}
+.detailing-services-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #232323;
+    margin-bottom: 32px;
+}
+.services-cards {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+.service-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(33,150,243,0.07);
+    padding: 32px 24px 24px 24px;
+    width: 320px;
+    text-align: center;
+    margin: 12px 0;
+    transition: transform 0.18s;
+}
+.service-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 6px 24px rgba(33,150,243,0.13);
+}
+.service-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 18px;
+}
+.service-card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1976d2;
+    margin-bottom: 10px;
+}
+.service-card-desc {
+    font-size: 1rem;
+    color: #444;
+}
+</style>
+
+<div class="detailing-hero">
+    <div class="detailing-hero-content">
+        <div class="detailing-hero-title">Touchless Automatic Washes</div>
+        <div class="detailing-hero-desc">
+            Fast, Safe, Eco-Friendly, and Scratch-Free Wash Technology
+        </div>
+        <ul class="detailing-hero-list">
+            <li>100% Touch-Free Technology: No brushes or harsh contact.</li>
+            <li>Acid-Free, Eco-Friendly Soaps: Gentle on your vehicle.</li>
+            <li>Spot-Free Rinse: No water marks left behind.</li>
+        </ul>
+    </div>
+    <div class="detailing-hero-img">
+        <img src="{% static 'IMG/TouchlessAutomaticWashes.png' %}" alt="Touchless Wash">
+    </div>
+</div>
+
+<div class="detailing-services-section">
+    <div class="detailing-services-title">Our Detailing Services</div>
+    <div class="services-cards">
+        <div class="service-card">
+            <img src="{% static 'IMG/Exterior Wash & Wax.jpg' %}" alt="Exterior Wash">
+            <div class="service-card-title">Exterior Wash & Wax</div>
+            <div class="service-card-desc">Complete exterior cleaning and wax for a long-lasting shine.</div>
+        </div>
+        <div class="service-card">
+            <img src="{% static 'IMG/Interior Cleaning.jpg' %}" alt="Interior Cleaning">
+            <div class="service-card-title">Interior Cleaning</div>
+            <div class="service-card-desc">Deep cleaning of all upholstery and surfaces inside the car.</div>
+        </div>
+        <div class="service-card">
+            <img src="{% static 'IMG/Paint Protection.jpg' %}" alt="Paint Protection">
+            <div class="service-card-title">Paint Protection</div>
+            <div class="service-card-desc">Protect your car’s paintwork with ceramic coatings for durability.</div>
+        </div>
+    </div>
+</div>
+{% endblock %}

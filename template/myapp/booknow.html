@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CarCare Booking</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      background-color: #eaf4ff;
+      color: #333;
+    }
+    .booking-header {
+      background: linear-gradient(to right, #0066cc, #00aaff);
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .form-section {
+      background-color: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .btn-custom {
+      background-color: #ff6600;
+      color: white;
+    }
+    .btn-custom:hover {
+      background-color: #e65c00;
+    }
+  </style>
+</head>
+<body>
+
+
+<header class="booking-header">
+  <h1>CarCare Booking Services</h1>
+  <p>Select your booking type and fill out the necessary details.</p>
+</header>
+
+
+<div class="container mt-3">
+  
+  <a href="{% url 'home' %}" class="btn btn-outline-primary">Back to Home</a>
+  <div class="main-nav-links">
+</div>
+
+
+<div class="container mt-5">
+  <ul class="nav nav-tabs" id="bookingTabs" role="tablist">
+    <li class="nav-item">
+      <button class="nav-link active" id="carwash-tab" data-bs-toggle="tab" data-bs-target="#carwash" type="button" role="tab">Car Wash Booking</button>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link" id="rentcar-tab" data-bs-toggle="tab" data-bs-target="#rentcar" type="button" role="tab">Rent Car Booking</button>
+    </li>
+  </ul>
+
+
+  <div class="tab-content mt-4">
+    <!-- Car Wash Booking -->
+    <div class="tab-pane fade show active" id="carwash" role="tabpanel">
+      <div class="form-section">
+        <h4>Car Wash Booking</h4>
+        <form method="POST">              # CRUD USING (BOOKING) CREATE  OBJECT                                  
+          {% csrf_token %}
+          <!-- Car Wash Booking fields -->
+          <button type="submit" name="carwash_submit" class="btn btn-custom">Book Now</button>
+        </form>
+      </div>
+    </div>
+
+
+    <!-- Rent Car Booking -->
+    <div class="tab-pane fade" id="rentcar" role="tabpanel">
+      <div class="form-section">
+        <h4>Rent Car Booking</h4>
+        <form method="POST">              # CRUD USING (RENT) BACKEND CREATE  OBJECT
+          {% csrf_token %}
+          <!-- Rent Car Booking fields -->
+          <button type="submit" name="rentcar_submit" class="btn btn-success">Book Now</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+ 
+

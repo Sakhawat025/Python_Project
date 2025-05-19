@@ -1,0 +1,244 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(120deg, #e3f2fd 0%, #fff 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 16px 40px;
+            background: #1976d2;
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+        }
+        .navbar .about-btn {
+            background: #fff;
+            border: 1px solid #1976d2;
+            color: #1976d2;
+            border-radius: 20px;
+            padding: 8px 24px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            text-decoration: none;
+            margin-left: 16px;
+        }
+        .navbar .about-btn:hover {
+            background: #1976d2;
+            color: #fff;
+        }
+        .profile-container {
+            max-width: 720px;
+            margin: 48px auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 6px 32px rgba(25, 118, 210, 0.10);
+            padding: 36px 32px 28px 32px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+        .profile-avatar {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            background: #1976d2;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 12px rgba(25, 118, 210, 0.10);
+            overflow: hidden;
+        }
+        .profile-avatar img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 88%;
+            height: 88%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #1976d2;
+        }
+        .profile-header-info {
+            flex: 1;
+        }
+        .profile-header-info h2 {
+            margin: 0 0 4px 0;
+            color: #1976d2;
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+        .profile-header-info .subtitle {
+            color: #888;
+            font-size: 1.05rem;
+        }
+        .profile-table {
+            width: 100%;
+            font-size: 1.08rem;
+            margin-bottom: 24px;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+        }
+        .profile-table th {
+            text-align: left;
+            color: #1976d2;
+            font-weight: 600;
+            width: 38%;
+            padding: 8px 0;
+        }
+        .profile-table td {
+            padding: 8px 0;
+            color: #232323;
+            background: #e3f2fd;
+            border-radius: 6px;
+        }
+        .special-member-box {
+            background: #e3f2fd;
+            border-left: 4px solid #1976d2;
+            padding: 10px 16px;
+            border-radius: 8px;
+            margin-top: 4px;
+        }
+        .section-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(25, 118, 210, 0.04);
+            padding: 22px 18px 16px 18px;
+            margin-bottom: 18px;
+        }
+        .section-card h3 {
+            color: #1976d2;
+            margin: 0 0 10px 0;
+            font-size: 1.15rem;
+        }
+        .section-card ul {
+            margin: 0;
+            padding: 0 0 0 18px;
+        }
+        .section-card li {
+            margin-bottom: 6px;
+            color: #333;
+        }
+        .section-card p {
+            color: #888;
+            margin: 0;
+        }
+        .logout-btn {
+            background: linear-gradient(90deg, #1565c0 0%, #42a5f5 100%);
+            color: #fff;
+            border: none;
+            border-radius: 24px;
+            padding: 12px 36px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 16px rgba(25, 118, 210, 0.10);
+            margin-top: 18px;
+        }
+        .logout-btn:hover {
+            background: linear-gradient(90deg, #0d47a1 0%, #1976d2 100%);
+            box-shadow: 0 6px 24px rgba(25, 118, 210, 0.18);
+        }
+        @media (max-width: 600px) {
+            .profile-container {
+                padding: 18px 4vw 18px 4vw;
+            }
+            .profile-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="{% url 'home' %}" class="about-btn" style="margin-right:16px;">Back to Home</a>
+    </div>
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="profile-avatar">
+                {% if user.image %}
+                    <img src="{{ user.image.url }}" alt="Profile Picture">
+                {% else %}
+                    <span style="font-size:3rem;color:#fff;">{{ user.username|slice:":1"|upper }}</span>
+                {% endif %}
+            </div>
+            <div class="profile-header-info">
+                <h2>{{ user.username }}</h2>
+                <div class="subtitle">Welcome to your profile page!</div>
+            </div>
+        </div>
+        <table class="profile-table">
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>User Type</th>
+                <td>{{ user.get_user_type_display }}</td>
+            </tr>
+            {% if user.membership_type %}
+            <tr>
+                <th>Membership</th>
+                <td>
+                    <div class="special-member-box">
+                        <strong>{{ user.membership_type|title }}</strong> Member
+                    </div>
+                </td>
+            </tr>
+            {% endif %}
+        </table>
+
+        <div class="section-card">
+            <h3>Bookings</h3>
+            {% if bookings %}
+                <ul>
+                    {% for booking in bookings %}
+                        <li>
+                            Car booking: <strong>{{ booking.car_name }}</strong> on {{ booking.date|date:"d M Y" }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No car wash bookings yet.</p>
+            {% endif %}
+        </div>
+
+        <div class="section-card">
+            <h3>Rents</h3>
+            {% if rents %}
+                <ul>
+                    {% for rent in rents %}
+                        <li>
+                            Rented: <strong>{{ rent.car_name }}</strong> from {{ rent.start_date|date:"d M Y" }} to {{ rent.end_date|date:"d M Y" }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No car rentals yet.</p>
+            {% endif %}
+        </div>
+
+        <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+    </div>
+</body>
+</html>

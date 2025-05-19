@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+.touchless-hero {
+    background: linear-gradient(90deg, #e3f2fd 0%, #fff 100%);
+    padding: 48px 0 24px 0;
+    text-align: center;
+}
+.touchless-hero h1 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #232323;
+}
+.touchless-hero p {
+    font-size: 1.1rem;
+    color: #1976d2;
+    margin-bottom: 24px;
+}
+.touchless-features {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    align-items: flex-start;
+}
+.touchless-feature-list {
+    flex: 1 1 340px;
+    text-align: left;
+    margin-top: 18px;
+}
+.touchless-feature-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.touchless-feature-list li {
+    margin-bottom: 16px;
+    font-size: 1.08rem;
+    color: #333;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+.touchless-feature-list li i {
+    color: #1976d2;
+    font-size: 1.2rem;
+    margin-top: 2px;
+}
+.touchless-video {
+    flex: 1 1 340px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 320px;
+}
+.touchless-video iframe {
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(25, 118, 210, 0.10);
+    width: 100%;
+    max-width: 400px;
+    height: 225px;
+}
+.touchless-btn-row {
+    margin-top: 36px;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+.touchless-btn {
+    background: #ff9800;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 14px 38px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    display: inline-block;
+}
+.touchless-btn:hover {
+    background: #ffa726;
+}
+@media (max-width: 900px) {
+    .touchless-features {
+        flex-direction: column;
+        gap: 18px;
+    }
+    .touchless-video, .touchless-feature-list {
+        min-width: 0;
+        width: 100%;
+    }
+    .touchless-video iframe {
+        width: 100%;
+        max-width: 100%;
+        height: 200px;
+    }
+}
+</style>
+
+<div class="touchless-hero">
+    <h1>Touchless Automatic Washes</h1>
+    <p>Fast, Safe, Eco-Friendly, and Scratch-Free Wash Technology</p>
+    <div class="touchless-features">
+        <div class="touchless-video">
+            <iframe src="https://www.youtube.com/embed/rY1g8NCyQNk" title="Introducing the CBK308: Your Ultimate Touchless Car Wash Solution" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="touchless-feature-list-box">
+            <div class="touchless-feature-list">
+                <ul>
+                    <li><i class="fas fa-car"></i> <b>100% Touch-Free Technology:</b> No brushes or harsh contact—just a safe, scratch-free clean every time.</li>
+                    <li><i class="fas fa-leaf"></i> <b>Acid-Free, Eco-Friendly Soaps:</b> Gentle on your vehicle and tough on dirt.</li>
+                    <li><i class="fas fa-water"></i> <b>Spot-Free Rinse:</b> No water marks left behind—just a brilliant shine.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="touchless-btn-row">
+        <a href="/booknow/" class="touchless-btn">Book Now</a>
+       
+    </div>
+</div>
+{% endblock %}
+
+<style>
+.touchless-feature-list-box {
+    background: #f8fafc;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(25, 118, 210, 0.08);
+    padding: 28px 24px 18px 24px;
+    margin-top: 18px;
+    border: 1.5px solid #e3f2fd;
+}
+.touchless-feature-list {
+    text-align: left;
+    margin: 0;
+}
+</style>

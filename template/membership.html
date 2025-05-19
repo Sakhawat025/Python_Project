@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Membership | CarCare{% endblock title %}
+{% block styles %}
+<style>
+.membership-hero {
+    background: linear-gradient(90deg, #008cff 0%, #00c6ff 100%);
+    color: #fff;
+    text-align: center;
+    padding: 48px 0 24px 0;
+}
+.membership-hero h1 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.membership-hero p {
+    font-size: 1.1rem;
+    color: #e3f2fd;
+}
+.membership-video {
+    margin: 32px auto 0 auto;
+    max-width: 480px;
+    box-shadow: 0 4px 24px rgba(25, 118, 210, 0.10);
+    border-radius: 12px;
+    overflow: hidden;
+}
+.membership-tiers-section {
+    background: #f6fafd;
+    padding: 36px 0 24px 0;
+    display: flex;
+    justify-content: center;
+}
+.membership-tiers-container {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+.membership-tier-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(25, 118, 210, 0.08);
+    padding: 32px 28px 24px 28px;
+    min-width: 260px;
+    max-width: 320px;
+    text-align: center;
+    border-top: 4px solid transparent;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    position: relative;
+}
+.membership-tier-card.popular {
+    border-top: 4px solid #1976d2;
+    box-shadow: 0 6px 24px rgba(25, 118, 210, 0.18);
+}
+.membership-tier-card .popular-badge {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1976d2;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 4px 18px;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.10);
+    letter-spacing: 1px;
+}
+.membership-tier-card h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 14px;
+    color: #232323;
+}
+.membership-tier-card .price {
+    font-size: 1.1rem;
+    color: #1976d2;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.membership-tier-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 18px 0;
+    color: #444;
+    font-size: 1.05rem;
+    text-align: left;
+}
+.membership-tier-card ul li {
+    margin-bottom: 8px;
+    padding-left: 18px;
+    position: relative;
+}
+.membership-tier-card ul li:before {
+    content: "\\2713";
+    color: #1976d2;
+    position: absolute;
+    left: 0;
+}
+.membership-tier-card .join-btn {
+    background: linear-gradient(90deg, #1565c0 0%, #42a5f5 100%);
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 10px 32px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+    display: inline-block;
+}
+.membership-tier-card .join-btn:hover {
+    background: linear-gradient(90deg, #1976d2 0%, #64b5f6 100%);
+}
+@media (max-width: 900px) {
+    .membership-tiers-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+}
+</style>
+{% endblock styles %}
+
+{% block content %}
+<div class="membership-hero">
+    <h1>SAVE MORE WITH CARCARE MEMBERSHIP</h1>
+    <p>No Contract Required. Just Sign Up &amp; Enjoy Premium Washes!</p>
+    <div class="membership-video">
+        <iframe width="100%" height="270" src="https://www.youtube.com/embed/your_video_id_here" title="Car Wash Video" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
+<div class="membership-tiers-section">
+    <div class="membership-tiers-container">
+        <div class="membership-tier-card">
+            <h3>BASIC WASH PLAN</h3>
+            <div class="price">2500tk / MONTH</div>
+            <ul>
+                <li>ESSENTIAL Wash Level</li>
+                <li>Self-Serve Wash – First 5 Mins Free</li>
+                <li>BONUS Self-Serve – 5 Minutes</li>
+                <li>FREE Vacuums</li>
+                <li>25% Off Additional Washes</li>
+                <li>Live Customer Support</li>
+            </ul>
+            <form method="post" action="{% url 'become_member' %}">
+                {% csrf_token %}
+                <input type="hidden" name="membership_type" value="basic">
+                <button type="submit" class="join-btn">BECOME A MEMBER</button>
+            </form>
+        </div>
+        <div class="membership-tier-card popular">
+            <div class="popular-badge">MOST POPULAR</div>
+            <h3>CLASSIC MEMBERSHIP</h3>
+            <div class="price">4000tk / MONTH</div>
+            <ul>
+                <li>BASIC PLAN Features</li>
+                <li>SUPERIOR COMPLETE Wash Levels</li>
+                <li>FREE Self-Serve Dog Wash</li>
+                <li>$25 Self-Detail Services</li>
+            </ul>
+            <form method="post" action="{% url 'become_member' %}">
+                {% csrf_token %}
+                <input type="hidden" name="membership_type" value="classic">
+                <button type="submit" class="join-btn">BECOME A MEMBER</button>
+            </form>
+        </div>
+        <div class="membership-tier-card">
+            <h3>INCREDIBLE MEMBERSHIP</h3>
+            <div class="price">6200tk / MONTH</div>
+            <ul>
+                <li>BASIC + CLASSIC Features</li>
+                <li>INCREDIBLE Wash Level</li>
+                <li>Self-Serve Wash – First 15 Mins FREE</li>
+                <li>$60 Off Select Detail Services</li>
+                <li>Access to Ceramic Chemistry Protection</li>
+            </ul>
+            <form method="post" action="{% url 'become_member' %}">
+                {% csrf_token %}
+                <input type="hidden" name="membership_type" value="incredible">
+                <button type="submit" class="join-btn">BECOME A MEMBER</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

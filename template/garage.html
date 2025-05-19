@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garage Services</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    .garage-header {
+      background: linear-gradient(to right, #0066cc, #00aaff);
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .garage-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 1rem;
+      margin-bottom: 2rem;
+    }
+    .feature-image {
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+
+<header class="garage-header">
+  <h1>Garage Services</h1>
+  <p>Your one-stop solution for car maintenance and repair.</p>
+</header>
+
+
+<div class="container mt-3">
+  <a href="{% url 'home' %}" class="btn btn-outline-primary">&larr; Back to Home</a>
+</div>
+
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4 egarage-card">
+      <img src="{% static 'IMG/garage/Engine Repair.png' %}" alt="Service Image" class="img-fluid feature-image">
+      <h4 class="mt-2">Engine Repair</h4>
+      <p>Complete engine diagnostics and repair services for all car models.</p>
+    </div>
+    <div class="col-md-4 egarage-card">
+      <img src="{% static 'IMG/garage/Oil Change.png' %}" alt="Service Image" class="img-fluid feature-image">
+      <h4 class="mt-2">Oil Change</h4>
+      <p>High-quality oil change service to keep your engine running smoothly.</p>
+    </div>
+    <div class="col-md-4 egarage-card">
+      <img src="{% static 'IMG/garage/Tire Replacement.png' %}" alt="Service Image" class="img-fluid feature-image">
+      <h4 class="mt-2">Tire Replacement</h4>
+      <p>Professional tire replacement and alignment services.</p>
+    </div>
+    <div class="col-md-4 egarage-card">
+      <img src="{% static 'IMG/garage/Battery Replacement.png' %}" alt="Service Image" class="img-fluid feature-image">
+      <h4 class="mt-2">Battery Replacement</h4>
+      <p>Quick and reliable battery check and replacement services.</p>
+    </div>
+    <div class="col-md-4 egarage-card">
+      <img src="{% static 'IMG/garage/Brake Service.png' %}" alt="Service Image" class="img-fluid feature-image">
+      <h4 class="mt-2">Brake Service</h4>
+      <p>Ensure your safety with our top-notch brake inspection and repair.</p>
+    </div>
+    <div class="col-md-4 egarage-card">
+      <img src="{% static 'IMG/garage/AC Repair.png' %}" alt="Service Image" class="img-fluid feature-image">
+      <h4 class="mt-2">AC Repair</h4>
+      <p>Stay cool with our professional car air conditioning repair services.</p>
+    </div>
+    <div class="col-md-4 egarage-card">
+      <img src="{% static 'IMG/garage/Transmission Service.png' %}" alt="Service Image" class="img-fluid feature-image">
+      <h4 class="mt-2">Transmission Service</h4>
+      <p>Transmission inspection, maintenance, and repair services.</p>
+    </div>
+    <div class="col-md-4 egarage-card">
+      <img src="{% static 'IMG/garage/Paint & Body Work.png' %}" alt="Service Image" class="img-fluid feature-image">
+      <h4 class="mt-2">Paint & Body Work</h4>
+      <p>Restore your car's look with quality paint and body repair services.</p>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+
+
